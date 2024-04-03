@@ -1,0 +1,128 @@
+@charset "utf-8";
+/* header scrolled, js */
+/* header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 999;
+  transition: top 0.2s;
+}
+.header-top {
+  position: relative;
+  display: block;
+  padding-top: 30px;
+}
+.header-top-left {
+  position: relative;
+  display: block;
+  float: left;
+  letter-spacing: 0;
+}
+.bt-scheduler {
+  position: relative;
+  display: inline-block;
+  font-size: 13px;
+  color: #666;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  vertical-align: -2px;
+  /* 줄맞춤 수직정렬 */
+}
+
+.bt-scheduler img {
+  vertical-align: -3px;
+  margin-right: 4px;
+}
+.header-top-right {
+  position: relative;
+  display: block;
+  float: right;
+  padding-top: 3px;
+  top: -20px;
+}
+.delivery{
+    position: relative;
+    display: inline-block;
+}
+
+.member-list{
+    position: relative;
+    display: inline-block;
+    vertical-align: -9px;
+}
+.member-list > li{
+    position: relative;
+    display: block;
+    float: left;
+    padding: 0 10px;
+}
+.member-list > li::after{
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: 0;
+    width: 1px;
+    height: 10px;
+    background-color: #bbb;
+}
+.member-list > li:last-child{
+    padding-right: 0;
+}
+
+.member-list > li:last-child::after{
+    content: none;
+}
+.member-list > li > a{
+    position: relative;
+    display: block;
+    font-size: 13px;
+    color: #666;
+}
+/* center more */
+.center-more{
+    padding-right: 15px;
+}
+.center-more::after{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 6px;
+    display: block;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url("../images/icoMyMenu.png") no-repeat;
+    background-position: 0px 0px;
+}
+.center-more.active::after{
+    background-position: 0px -6px;
+}
+.center-list{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 6px 0 rgba(0 0 0 / 16%);
+    z-index: 1;
+    display: none;
+}
+
+.center-list > li{
+    display: block;
+    position: relative;
+}
+
+.center-list > li > a{
+    font-size: 13px;
+    position: relative;
+    display: block;
+    white-space: nowrap;  /* 줄내림 금지 */
+}
