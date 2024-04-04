@@ -23,7 +23,7 @@
   float: left;
   letter-spacing: 0;
 }
-.bt-scheduler {
+.bt-schedule {
   position: relative;
   display: inline-block;
   font-size: 13px;
@@ -35,10 +35,11 @@
   /* 줄맞춤 수직정렬 */
 }
 
-.bt-scheduler img {
+.bt-schedule img {
   vertical-align: -3px;
   margin-right: 4px;
 }
+
 .header-top-right {
   position: relative;
   display: block;
@@ -46,83 +47,335 @@
   padding-top: 3px;
   top: -20px;
 }
-.delivery{
-    position: relative;
-    display: inline-block;
+.track {
+  position: relative;
+  display: inline-block;
 }
 
-.member-list{
-    position: relative;
-    display: inline-block;
-    vertical-align: -9px;
+.member-list {
+  position: relative;
+  display: inline-block;
+  vertical-align: -9px;
 }
-.member-list > li{
+.member-list > li {
+  position: relative;
+  display: block;
+  float: left;
+  padding: 0 10px;
+}
+.member-list > li::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  right: 0;
+  width: 1px;
+  height: 10px;
+  background-color: #bbb;
+}
+.member-list > li:last-child {
+  padding-right: 0;
+}
+
+.member-list > li:last-child::after {
+  content: none;
+}
+.member-list > li > a {
+  position: relative;
+  display: block;
+  font-size: 13px;
+  color: #666;
+}
+/* center more */
+.center-more {
+  padding-right: 15px;
+}
+.center-more::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 6px;
+  display: block;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: url("../images/icoMyMenu.png") no-repeat;
+  background-position: 0px 0px;
+}
+.center-more.active::after {
+  background-position: 0px -6px;
+}
+
+.center-list {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 6px 0 rgba(0 0 0 / 16%);
+  z-index: 1;
+  display: none;
+}
+
+.center-list > li {
+  display: block;
+  position: relative;
+}
+
+.center-list > li > a {
+  font-size: 13px;
+  position: relative;
+  display: block;
+  white-space: nowrap; /* 줄내림 금지 */
+}
+/* 헤더의 메인 (하단) */
+.header-main {
+  display: block;
+  position: relative;
+  padding: 13px 0;
+}
+.header-main-left {
+  display: block;
+  position: relative;
+  float: left;
+}
+.nav {
+  position: relative;
+  display: inline-block;
+  padding-top: 12px;
+  margin-right: 45px;
+}
+
+.gnb {
+  position: relative;
+  display: inline-block;
+  margin-left: 130px;
+}
+.gnb > li{
     position: relative;
     display: block;
     float: left;
-    padding: 0 10px;
+    margin-right: 30px;
 }
-.member-list > li::after{
-    content: "";
-    position: absolute;
-    top: 7px;
-    right: 0;
-    width: 1px;
-    height: 10px;
-    background-color: #bbb;
+.gnb > li:last-child{
+    margin-right: 0;
 }
-.member-list > li:last-child{
-    padding-right: 0;
-}
-
-.member-list > li:last-child::after{
-    content: none;
-}
-.member-list > li > a{
+.gnb > li > a{
     position: relative;
     display: block;
-    font-size: 13px;
-    color: #666;
-}
-/* center more */
-.center-more{
-    padding-right: 15px;
-}
-.center-more::after{
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 6px;
-    display: block;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background: url("../images/icoMyMenu.png") no-repeat;
-    background-position: 0px 0px;
-}
-.center-more.active::after{
-    background-position: 0px -6px;
-}
-.center-list{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0 3px 6px 0 rgba(0 0 0 / 16%);
-    z-index: 1;
-    display: none;
+    font-size: 16px;
+    color: #000;
+    font-weight: 700;
+    line-height: 19px;
 }
 
-.center-list > li{
-    display: block;
-    position: relative;
+.gnb > li > a:hover {
+    color: #76bd42;
+}  
+
+.ball::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: -7px;
+  width: 5px;
+  height: 5px;
+  background-color: #ff9933;
+  border-radius: 50%;
+}
+/* 전체메뉴 */
+.all-menu-area {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  display: inline-block;
+  height: 43px;
+  width: 100px;
+}
+.all-menu {
+  position: absolute;
+  left: 0;
+  top: 41px;
+  background-color: rgb(174, 174, 175);
+  width: 210px;
+  height: 0;
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+  visibility: hidden;
+  overflow: hidden;
+  transition: width 0.5s;
+}
+.all-menu-area:hover .all-menu {
+  height: calc(100vh - 250px);
+  visibility: visible;
+}
+.all-menu.active {
+  width: 420px;
+}
+.all-menu-cate {
+  position: relative;
+  display: block;
+  width: 210px;
+  height: 100%;
+  background-color: #fff;
+  overflow: auto;
+}
+.cate-list {
+  position: relative;
+}
+.cate-list > li {
+  position: relative;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 40px;
+}
+.cate-list > li > a {
+  position: relative;
+  display: block;
+  padding: 0 24px;
+  font-weight: 700;
+}
+.cate-list > li > a::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  /* top: calc(50% - 5px); */
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 6px;
+  height: 10px;
+  background: url("../images/icoGnbArr1.png") no-repeat 0 -10px;
+  display: none;
+}
+.cate-list > li > a:hover {
+  background-color: #f9f9f9;
+  color: #76bd42;
+}
+.cate-list > li > a:hover::after {
+  display: block;
+}
+.theme-list {
+  position: relative;
+  font-size: 15px;
+  /* font-weight: 500; */
+  line-height: 40px;
 }
 
-.center-list > li > a{
-    font-size: 13px;
-    position: relative;
-    display: block;
-    white-space: nowrap;  /* 줄내림 금지 */
+.theme-list > li::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  bottom: 0;
+  display: block;
+  height: 1px;
+  width: calc(100% - 24px - 24px);
+  background-color: #e4e4e4;
+}
+
+.theme-list > li:first-child::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 0;
+  display: block;
+  height: 1px;
+  background-color: #666;
+  width: calc(100% - 24px - 24px);
+}
+.theme-list > li:last-child::after {
+  background-color: #666;
+}
+.theme-list > li > a {
+  position: relative;
+  display: block;
+  padding: 0 24px;
+  font-weight: 700;
+}
+.theme-list > li > a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  width: 6px;
+  height: 10px;
+  background: url("../images/icoGnbArr1.png") no-repeat 0 0;
+}
+
+.theme-list > li > a:hover {
+  color: #76bd42;
+}
+
+.theme-list > li > a:hover::after {
+  background-position: 0 -10px;
+}
+
+.theme-list > li > a > span {
+  position: relative;
+  display: inline-block;
+}
+.theme-list .ball::after {
+  top: 10px;
+}
+
+.deli-list {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.deli-list > li {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.deli-list > li > a {
+  position: relative;
+  display: block;
+  padding: 0 24px;
+  color: #666;
+}
+
+.deli-list > li > a:hover {
+  color: #76bd42;
+}
+
+.deli-list > li > a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  width: 6px;
+  height: 10px;
+  background: url("../images/icoGnbArr1.png") no-repeat 0 0;
+}
+
+.deli-list > li > a:hover::after {
+  background-position: 0 -10px;
+}
+.all-menu-cate-wrap {
+  position: absolute;
+  left: 210px;
+  top: 0;
+  width: 219px;
+  height: 100%;
+  background-color: #f9f9f9;
+}
+/* cate-depth2 list position */
+.cate-depth2-list {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 15px;
+}
+.cate-depth2-list > li {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 40px;
+}
+.cate-depth2-list > li > a:hover{
+    color: #76bd42;
+    text-decoration: underline;
 }
