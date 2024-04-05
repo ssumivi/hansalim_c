@@ -23,6 +23,7 @@ img{
 
 html{
     font-size: 16px;
+    height: 2000px;
 }
 body{
     font-family: "Roboto", "Noto Sans KR", sans-serif;
@@ -55,5 +56,4 @@ body{
     display: block;
     padding-top: 128px;
     transition: padding-top .2s;
-    background-color: antiquewhite;
 }
