@@ -43,7 +43,9 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/visual.css" />
+    <link rel="stylesheet" href="css/todaygoods.css">
     <!-- js -->
     <script src="js/respond.min.js"></script>
     <!-- IE 9 이하는 HTML5 태그를 지원하지 않는다. -->
@@ -53,6 +55,7 @@
     <!-- CSS3 적용 -->
     <!-- <script src="js/prefixfree.min.js"></script> -->
     <script src="js/header.js"></script>
+    <script src="js/script.js"></script>
   </head>
   <body>
     <!-- info modal -->
@@ -475,8 +478,8 @@
             <!-- header-main' right -->
             <div class="header-main-right cf">
               <form action="#" class="search-form">
-                <input type="text" class="search-txt" placeholder="무엇을 찾아 드릴까요?">
-                <input type="text" class="search-bt">
+                <input type="text" class="search-txt" placeholder="무엇을 찾아 드릴까요?" />
+                <input type="text" class="search-bt" />
               </form>
               <a href="#" class="bucket"><span class="bucket-count">0</span></a>
             </div>
@@ -484,7 +487,39 @@
         </div>
       </header>
       <!-- visual -->
+      <section class="visual">
+        <div class="visual-slide">
+          <!-- visual slide -->
+          <div class="swiper sw-visual">
+            <div class="swiper-wrapper" id="data-visual">
+              <!-- 외부 비주얼 데이터 (json) js 연동 출력 -->
+            </div>
+          </div>
+        </div>
+        <!-- 좌우 슬라이드 이동 버튼 -->
+        <button class="visual-prev">이전</button>
+        <button class="visual-next">다음</button>
+        <!-- 슬라이드 콘트롤러 -->
+        <div class="visual-control clearfix">
+          <button class="visual-play"></button>
+          <div class="visual-pg">1/17</div>
+          <button class="visual-more"></button>
+        </div>
+      </section>
       <!-- today's grocery -->
+      <section class="today">
+        <div class="container">
+          <h2 class="section-title">
+            <b>이 물품은 어떠세요?</b>
+          </h2>
+          <div class="good-wrap" id="data-today">
+            <!-- data 연동 -->
+          </div>
+          <div class="good-wrap no-mb" id="data-today2">
+            <!-- data 연동 -->
+          </div>
+        </div>
+      </section>
       <!-- dc grocery -->
       <!-- what's new -->
       <!-- recomand -->
