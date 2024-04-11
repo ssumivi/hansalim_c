@@ -1,4 +1,7 @@
 @charset "utf-8";
+.wrap.active {
+  padding-top: calc(128px - 61px);
+}
 /* header scrolled, js */
 .header.active {
   top: -61px;

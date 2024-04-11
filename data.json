@@ -86,5 +86,153 @@
       "id": "7",
       "link": "#"
     }
+  ],
+  "salegood": [
+    {
+      "name": "청귤",
+      "unit": "3kg/유",
+      "price": 12800,
+      "tag": "할인",
+      "pic": "sale_7.jpg",
+      "id": "1",
+      "link": "#"
+    },
+    {
+      "name": "브로콜리곁순말림",
+      "unit": "70g",
+      "price": 1650,
+      "tag": "할인",
+      "pic": "sale_6.jpg",
+      "id": "2",
+      "link": "#"
+    },
+    {
+      "name": "양념꼴뚜기젓",
+      "unit": "200g",
+      "price": 3500,
+      "tag": "할인",
+      "pic": "sale_3.jpg",
+      "id": "2",
+      "link": "#"
+    },
+    {
+      "name": "자연산바다장어",
+      "unit": "냉장/600g",
+      "price": 20000,
+      "tag": "할인",
+      "pic": "sale_4.jpg",
+      "id": "3",
+      "link": "#"
+    },
+    {
+      "name": "생기품은 샴푸(순)",
+      "unit": "500㎖",
+      "price": 6100,
+      "tag": "할인",
+      "pic": "sale_5.jpg",
+      "id": "4",
+      "link": "#"
+    },
+    {
+      "name": "크림스파게티",
+      "unit": "620g/2인분",
+      "price": 4500,
+      "tag": "할인",
+      "pic": "sale_2.jpg",
+      "id": "5",
+      "link": "#"
+    },
+    {
+      "name": "소고기스프",
+      "unit": "80g",
+      "price": 2000,
+      "tag": "할인",
+      "pic": "sale_1.jpg",
+      "id": "6",
+      "link": "#"
+    },
+    {
+      "name": "콩콩크림빵",
+      "unit": "90g",
+      "price": 1450,
+      "tag": "할인",
+      "pic": "sale_8.jpg",
+      "id": "7",
+      "link": "#"
+    }
+  ],
+  "recommendgood": [
+    {
+      "name": "자장소스",
+      "unit": "250g",
+      "price": 2500,
+      "tag": "인기",
+      "pic": "recommend_1.jpg",
+      "id": "1",
+      "link": "#"
+    },
+    {
+      "name": "채소볶음밥",
+      "unit": "300g",
+      "price": 3800,
+      "tag": "인기",
+      "pic": "recommend_2.jpg",
+      "id": "2",
+      "link": "#"
+    },
+    {
+      "name": "초당옥수수피자",
+      "unit": "230g",
+      "price": 9500,
+      "tag": "인기",
+      "pic": "recommend_3.jpg",
+      "id": "2",
+      "link": "#"
+    },
+    {
+      "name": "통살생선가스",
+      "unit": "240g",
+      "price": 6200,
+      "tag": "인기",
+      "pic": "recommend_4.jpg",
+      "id": "3",
+      "link": "#"
+    },
+    {
+      "name": "우리밀핫도그(200g)",
+      "unit": "620g/2인분",
+      "price": 5000,
+      "tag": "인기",
+      "pic": "recommend_5.jpg",
+      "id": "6",
+      "link": "#"
+    },
+    {
+      "name": "돼지고기고추장구운주먹밥",
+      "unit": "(80g*4개)",
+      "price": 5700,
+      "tag": "인기",
+      "pic": "recommend_6.jpg",
+      "id": "7",
+      "link": "#"
+    },
+    {
+      "name": "카레닭가슴살주먹밥",
+      "unit": "400g",
+      "price": 6800,
+      "tag": "인기",
+      "pic": "recommend_7.jpg",
+      "id": "8",
+      "link": "#"
+    },
+    {
+      "name": "꼬마소시지",
+      "unit": "300g",
+      "price": 5000,
+      "tag": "인기",
+      "pic": "recommend_8.jpg",
+      "id": "9",
+      "link": "#"
+    }
   ]
 }
