@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="css/visual.css" />
     <link rel="stylesheet" href="css/todaygoods.css" />
     <link rel="stylesheet" href="css/sale.css" />
+    <link rel="stylesheet" href="css/popular.css">
     <!-- js -->
     <script src="js/respond.min.js"></script>
     <!-- IE 9 이하는 HTML5 태그를 지원하지 않는다. -->
@@ -501,7 +502,7 @@
         <button class="visual-prev">이전</button>
         <button class="visual-next">다음</button>
         <!-- 슬라이드 콘트롤러 -->
-        <div class="visual-control clearfix">
+        <div class="visual-control cf">
           <button class="visual-play"></button>
           <div class="visual-pg">1/17</div>
           <button class="visual-more"></button>
@@ -522,7 +523,7 @@
         </div>
       </section>
       <!-- dc grocery -->
-      <div class="sale">
+      <section class="sale">
         <div class="container">
           <div class="layout-wrap cf">
             <div class="layout-left">
@@ -549,12 +550,30 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <!-- what's new -->
-      <!-- recomand -->
+      <section class="new">
+        <div class="container">
+          <h2 class="section-title">
+            반가운<br />
+            <b>새물품</b>
+            <a href="#" class="section-bt">더보기</a>
+          </h2>
+          <!-- new product info -->
+          <div class="new-wrap cf">
+            <div class="new-left" id="data-new">
+              <!-- data -->
+            </div>
+            <div class="new-right" id="data-new-list">
+              <!-- data -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- recommend -->
       <section class="recommend">
         <div class="container">
-          <div class="layout-wrap clearfix">
+          <div class="layout-wrap cf">
             <div class="layout-left">
               <h2 class="section-title section-bar">
                 <b class="blue">조합원</b>님을 위한 <br />
@@ -577,6 +596,30 @@
         </div>
       </section>
       <!-- best seller -->
+      <section class="popular">
+        <div class="container">
+          <h2 class="section-title">
+            지금 가장 많이 이용하는 <b>인기물품</b>
+            <a href="#" class="popular-more">반려동물 물품 더보기</a>
+          </h2>
+          <!-- 인기 물품 카테고리 아이콘 -->
+          <div class="popular-cate cf">
+            <div class="popular-slide-prev">
+              <span>이전</span>
+            </div>
+            <div class="popular-slide" id="data-popular-icon">
+              <!-- 외부 인기물품 아이콘 데이터 연동 출력 js -->
+            </div>
+            <div class="popular-slide-next">
+              <span>다음</span>
+            </div>
+          </div>
+          <!-- 인기 물품 목록 -->
+          <div class="good-wrap no-mb" id="data-popular">
+            <!-- 외부 인기물품 데이터 연동 출력 js -->
+          </div>
+        </div>
+      </section>
       <!-- brand area -->
       <!-- banner -->
       <!-- season dish -->

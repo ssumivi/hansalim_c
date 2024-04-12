@@ -14,15 +14,25 @@ window.addEventListener("load", function () {
       VISUAL_ARR = obj.visual;
       TODAY_GOOD = obj.todaygood;
       SALE_GOOD = obj.salegood;
+      NEW_GOOD = obj.newgood;
       RECOMMEND_GOOD = obj.recommendgood;
+      POPULAR_ICON = obj.popularicon;
+      POPULAR_GOOD = obj.populargood;
+
       //visual을 화면에 배치
       showVisual();
       //today goods 화면에 배치
       showTodayGoods();
       //sale goods 화면에 배치
       showSaleGoods();
+      //new goods 화면에 배치
+      showNewGoods();
       //recomand goods 화면에 배치
       showRecommendGoods();
+      //popularicon 화면에 배치
+      showPopularIcon();
+      //populargood 화면에 배치
+      showPopularGood();
     }
   };
   //자료 호출
@@ -209,13 +219,51 @@ window.addEventListener("load", function () {
   }
   // ========== dc grocery end ==========
   // what's new
+  let NEW_GOOD;
+  let newTag = this.document.querySelector("#data-new");
+  let newTagList = this.document.querySelector("#data-new-list");
+  function showNewGoods() {
+    // 첫번째 화면 출력 (left)
+    let obj = NEW_GOOD[0]; //obj라는 변수를 0번째로 선언, 불러오기
+    let newGoodFirst = `
+    <a href="${obj.link}" class="new-img">
+    <img src="images/${obj.pic}" alt="${obj.title}"/>
+    </a>
+    <a href="${obj.link}" class="new-title">
+    ${obj.title}
+    </a>
+    <a href="${obj.link}" class="new-txt">
+    ${obj.txt}
+    </a>
+    `;
+    newTag.innerHTML = newGoodFirst;
+    // 두번째 화면 출력 (right)
+    let html = "";
+    NEW_GOOD.forEach(function (item, idx) {
+      let tag = "";
+      if (idx !== 0) {
+        // console.log(item);
+        let newGoodSecond = `
+        <div class="new-box">
+        <a href="${item.link}" class="new-box-img">
+            <img src="images/${item.pic}" alt="${item.title}"/>
+        </a>
+        <a href="${item.link}" class="new-box-title">
+            ${item.title}
+        </a>
+        </div>
+        `;
+        newTagList.innerHTML += newGoodSecond;
+      }
+    });
+  }
   // ==========  what's new end ==========
   // recommend section
   let RECOMMEND_GOOD;
   let recTag = this.document.querySelector("#data-recommend");
   function showRecommendGoods() {
     let html = `
-    <div class="swiper sw-sale">
+    <div class="swiper sw-reco">
     <div class="swiper-wrapper">
   `;
     RECOMMEND_GOOD.forEach(function (item) {
@@ -247,19 +295,76 @@ window.addEventListener("load", function () {
   </div>
   `;
     recTag.innerHTML = html;
-    const swReco = new Swiper(".sw-sale", {
+    const swReco = new Swiper(".sw-reco", {
       slidesPerView: 3, // 보여지는 슬라이드 개수
       spaceBetween: 16, // 슬라이드 간의 간격
       slidesPerGroup: 3, // 넘어가는 슬라이드 개수
       navigation: {
-        prevEl: ".sale .slide-prev",
-        nextEl: ".sale .slide-next",
+        prevEl: ".recommend .slide-prev",
+        nextEl: ".recommend .slide-next",
       },
       pagination: {
         // 페이지 수 출력됨.
-        el: ".sale .slide-pg",
+        el: ".recommend .slide-pg",
         type: "fraction", // type을 하지 않으면 점으로 나옴.
       },
+    });
+  }
+  //========= recommend section end ==========
+  // popular section
+  let POPULAR_ICON;
+  let pITag = this.document.querySelector("#data-popular-icon");
+  let POPULAR_GOOD;
+  //인기물품 목록 중 인덱스 리스트
+  let popularShow = 1;
+  let pGTag = this.document.querySelector("#data-popular");
+  //인기 물품 아이콘 로드
+  function showPopularIcon() {
+    let html = `
+    <div class = "swiper sw-icon">
+    <div class = "swiper-wrapper">
+    `;
+    POPULAR_ICON.forEach(function (item) {
+      const tag = `
+      <div class = "swiper-slide">
+        <a href = "${item.link}">
+            <span class = "popular-cate-icon"
+            style = "
+            background : url('images/${item.icon}') no-repeat;
+            background-position : 0px 0px;">
+            </span>
+            <span class = "popular-cate-name">${item.txt}</span>
+        </a>
+      </div>
+      `; // 호버시 변경위한 베이직 스타일 지정된 상태
+      html += tag;
+    });
+
+    html += `
+    </div>
+    </div>
+    `;
+    pITag.innerHTML = html;
+    const swIcon = new Swiper(".sw-icon", {
+      slidesPerView: 7, // 보여지는 슬라이드 개수
+      spaceBetween: 10, // 슬라이드 간의 간격
+      slidesPerGroup: 7, // 넘어가는 슬라이드 개수
+      navigation: {
+        prevEl: ".popular-cate .popular-slide-prev",
+        nextEl: ".popular-cate .popular-slide-next",
+      },
+    });
+    const tag = document.querySelectorAll(".popular-slide a");
+    tag.forEach(function (item, idx) {
+      // 호버했을 때 아이콘 이미지 변경
+      item.addEventListener("mouseover", function () {
+        const spanTag = this.querySelector(".popular-cate-icon");
+        spanTag.style.backgroundPositionY = "-64px"
+      });
+      item.addEventListener("mouseleave", function () {
+        const spanTag = this.querySelector(".popular-cate-icon");
+        spanTag.style.backgroundPositionY = "0"
+      });
     });
   }
 });
