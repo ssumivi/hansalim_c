@@ -359,12 +359,48 @@ window.addEventListener("load", function () {
       // 호버했을 때 아이콘 이미지 변경
       item.addEventListener("mouseover", function () {
         const spanTag = this.querySelector(".popular-cate-icon");
-        spanTag.style.backgroundPositionY = "-64px"
+        spanTag.style.backgroundPositionY = "-64px";
       });
       item.addEventListener("mouseleave", function () {
         const spanTag = this.querySelector(".popular-cate-icon");
-        spanTag.style.backgroundPositionY = "0"
+        spanTag.style.backgroundPositionY = "0";
       });
+      item.addEventListener("click", function (event) {
+        event.preventDefault();
+        const bt = document.querySelector(".popular-more");
+        const title = this.querySelector(".popular-cate-name");
+        // console.log(title);
+        bt.innerHTML = `${title.innerHTML} 물품 더보기`;
+        // 클릭된 아이콘에
+      });
+    });
+  }
+  // 인기물품 목록 화면출력
+  function showPopularGood() {
+    let html = "";
+    let popCate = "populargood-" + (popularShow + 0); //인덱스 번호에 계속 +1을 함
+    // console.log(POPULAR_GOOD[popCate]);
+    POPULAR_GOOD[popCate].forEach(function (item) {
+      // 여러개이므로 foreach
+      let tag = `
+          <div class="good-box">
+            <!-- 제품이미지 -->
+            <a href="${item.link}" class="good-img">
+                <img src="images/${item.pic}" alt="${item.name}" />
+                <span class="good-type">${item.tag}</span>
+            </a>
+            <!-- 제품정보 -->
+            <a href="${item.link}" class="good-info">
+                <em>${item.name}</em>(<em>${item.unit}</em>)
+            </a>
+            <!-- 제품가격 -->
+            <a href="${item.link}" class="good-info-price">${priceToString(item.price)}<em>원</em></a>
+            <!-- 장바구니 -->
+            <button class="good-add-cart"></button>
+          </div>
+      `;
+      html += tag;
+      pGTag.innerHTML = html;
     });
   }
 });
