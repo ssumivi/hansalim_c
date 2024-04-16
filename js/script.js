@@ -18,6 +18,8 @@ window.addEventListener("load", function () {
       RECOMMEND_GOOD = obj.recommendgood;
       POPULAR_ICON = obj.popularicon;
       POPULAR_GOOD = obj.populargood;
+      BRAND_ARR = obj.brandarr;
+      BANNER_ARR = obj.bannerarr;
 
       //visual을 화면에 배치
       showVisual();
@@ -33,6 +35,10 @@ window.addEventListener("load", function () {
       showPopularIcon();
       //populargood 화면에 배치
       showPopularGood();
+      //brand 화면에 배치
+      showBrandArr();
+      //banner 화면에 배치
+      showBannerArr();
     }
   };
   //자료 호출
@@ -401,6 +407,94 @@ window.addEventListener("load", function () {
       `;
       html += tag;
       pGTag.innerHTML = html;
+    });
+  }
+  //===========popular area end ===============
+  //brand area
+  let BRAND_ARR;
+  let brandTag = this.document.getElementById("data-brand");
+  function showBrandArr() {
+    let html = `
+    <div class="swiper sw-brand">
+    <div class="swiper-wrapper">
+    `;
+    BRAND_ARR.forEach(function (item) {
+      let tag = `
+      <div class="swiper-slide">
+            <div class="brand-box">
+                <a href="${item.link}">
+                    <img src="images/${item.pic}" alt="${item.name}"/>
+                    <p>${item.name}</p>
+                    <ul class="brand-info clearfix">
+                        <li>
+                            <span class="brand-info-title">${item.title1}</span>
+                            <span class="brand-info-value">${item.value1}</span>
+                        </li>
+                        <li>
+                            <span class="brand-info-title">${item.title2}</span>
+                            <span class="brand-info-value">${item.value2}</span>
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+      `;
+      html += tag;
+    });
+    html += `
+    </div>
+    </div>
+    `;
+    brandTag.innerHTML = html;
+    const swBrand = new Swiper(".sw-brand", {
+      slidesPerView: 3, // 보여지는 슬라이드 개수
+      spaceBetween: 16, // 슬라이드 간의 간격
+      slidesPerGroup: 1, // 넘어가는 슬라이드 개수
+      navigation: {
+        prevEl: ".brand .slide-prev",
+        nextEl: ".brand .slide-next",
+      },
+      pagination: {
+        el: ".brand .slide-pg",
+        type: "fraction",
+      },
+    });
+  }
+  // ==========brand area end ==========
+  // bannerarea
+  let BANNER_ARR;
+  let bannerTag = this.document.getElementById("data-banner");
+  function showBannerArr() {
+    let html = `
+    <div class = "swiper sw-banner">
+    <div class = "swiper-wrapper">
+    `;
+    BANNER_ARR.forEach(function (item) {
+      let tag = `
+    <div class="swiper-slide">
+            <a href="${item.link}">
+                <img src = "images/${item.image}" alt ="${item.title}"/>
+            </a>
+    </div>
+    `;
+      html += tag;
+    });
+    html += `
+    </div>
+    </div>
+    `;
+    bannerTag.innerHTML = html;
+    const swBanner = new Swiper(".sw-banner", {
+      loop: true,
+      autoplay: {
+        delay: 2500,
+      },
+      slidesPerView: 2,
+      spaceBetween: 0,
+      navigation: {
+        prevEl: ".banner .slide-prev",
+        nextEl: ".banner .slide-next",
+      },
     });
   }
 });
