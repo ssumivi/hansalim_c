@@ -32,6 +32,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <!-- swiper -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Smooth Scrollbar -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.8.1/smooth-scrollbar.js"
+      integrity="sha512-yn9N2uBs4OocMUaJ9wZK6ELv+qXIULoRa7IvOsGz2wqWQRt8mNqU1L2I9Fau24PPxEKlGxuEDkRKvsanwAWUYw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
     <!-- font awesome -->
     <link
       rel="stylesheet"
@@ -49,6 +55,7 @@
     <link rel="stylesheet" href="css/sale.css" />
     <link rel="stylesheet" href="css/popular.css" />
     <link rel="stylesheet" href="css/brand.css" />
+    <link rel="stylesheet" href="css/season.css" />
     <!-- js -->
     <script src="js/respond.min.js"></script>
     <!-- IE 9 이하는 HTML5 태그를 지원하지 않는다. -->
@@ -661,6 +668,38 @@
         </div>
       </section>
       <!-- season dish -->
+      <section class="season">
+        <div class="container">
+          <h2 class="section-title">제철제맛 가득한 <b>요리</b></h2>
+          <div class="season-wrap cf">
+            <div class="season-left">
+              <a href="#">
+                <img src="images/cook_main.jpg" alt="요리 메인" />
+                <div class="season-info">
+                  <h3>요리방법</h3>
+                  <p>
+                    <span>촉촉 황태채와 탱글탱글 도토리면을 호로록</span>
+                    <b>황태채 도토리비빔면</b>
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div class="season-right">
+              <div class="season-list">
+                <ul class="season-good-list" id="data-season" data-scrollbar></ul>
+              </div>
+              <div class="season-total">
+                <div class="season-good-total">
+                  <input type="checkbox" id="chkall" class="season-good-check" />
+                  <label for="chkall" class="season-label">라벨</label>
+                  전체선택 <em id="buy-total">5</em>개
+                </div>
+                <a href="#" class="buy-good"> 총 <em id="buy-total-price">49,500</em>원 바구니 담기 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- review -->
       <!-- comunity -->
       <!-- footer -->
