@@ -1,5 +1,4 @@
 window.addEventListener("load", function () {
-  //스크롤 했을 때 헤더 윗부분 접는 코드
   const wrap = this.document.querySelector(".wrap");
   const header = this.document.querySelector(".header");
   let scy = 0;
@@ -14,7 +13,7 @@ window.addEventListener("load", function () {
       header.classList.remove("active");
     }
   });
-  // 더보기메뉴 펼침 토글
+  //   펼침 목록들 보기 기능
   // 더보기 목록기능
   const menuBt = document.getElementById("menu-bt");
   const menuList = document.getElementById("menu-list");
@@ -24,87 +23,84 @@ window.addEventListener("load", function () {
   //  조합원센터 목록기능
   const centerBt = document.getElementById("center-bt");
   const centerList = document.getElementById("center-list");
-  //배열 순서 번호; 배열 순서 번호 담기(idx)
-  const tgListArr = [menuList, joinList, centerList];
-  const tgBtArr = [menuBt, joinBt, centerBt];
-  //펼침 목록 모두 닫기
-  document.addEventListener("click", function () {
-    tgListArr.forEach(function (item) {
+  // 배열 순서번호가 주어진다.(배열순서번호 index)
+
+  const toggleListArr = [menuList, joinList, centerList];
+  const toggleBtArr = [menuBt, joinBt, centerBt];
+  // 펼침 목록 모두 닫기
+  this.document.addEventListener("click", function () {
+    toggleListArr.forEach(function (item) {
       item.style.display = "none";
     });
-    //bnt reset
-    tgBtArr.forEach(function (item) {
+    // 버튼 초기화
+    toggleBtArr.forEach(function (item) {
       item.classList.remove("active");
     });
   });
-  //목록 전체를 클릭해도 이벤트 전달 막기
-  tgListArr.forEach(function (item) {
+  // 목록전체를 클릭해도 이벤트 전달을 막아줌
+  toggleListArr.forEach(function (item) {
     item.addEventListener("click", function (e) {
       e.stopPropagation();
     });
   });
-  //same fn 반복
-  function listTg(bt, list) {
-    //first, dont list show
+  // 코드 블럭이 같은 기능을 반복된다
+  // 기능을 만들어서 쓴다
+  function listToggle(bt, list) {
+    // 처음에는 목록을 보여주기 않는다.
     list.style.display = "none";
-    //click event! fnc
+    // 클릭이벤드가 발생하면 함수 실행
     bt.addEventListener("click", function (e) {
       e.stopPropagation();
-      // 모든 버튼 클래스 초기화
-      tgBtArr.forEach(function (item) {
+      toggleBtArr.forEach(function (item) {
         item.classList.remove("active");
       });
-      // 현재 목록 ID 가져오기
-      const nowList = list.getAttribute("id");
-      // 숨길 목록을 필터링
-      const hideArr = tgListArr.filter(function (item) {
+      console.log(list);
+      const nowListId = list.getAttribute("id");
+      const hideArr = toggleListArr.filter(function (item) {
         let id = item.getAttribute("id");
         // console.log(id);
-        // 현재 목록과 다른 경우만 필터링
-        if (id !== nowList) {
-          return item;
+        if (id !== nowListId) {
+          return this;
         }
       });
-      //새로 저장된 배열의 목록
-      // console.log(hideArr);
+      // 새로 저장된 배열의 목록
+      console.log(hideArr);
       hideArr.forEach(function (item) {
         item.style.display = "none";
       });
       const css = getComputedStyle(list).display;
+      // display값 비교한다.
       if (css === "none") {
         list.style.display = "block";
+        // 클래스를 강제로 추가한다.
         bt.classList.add("active");
       } else {
         list.style.display = "none";
+        // 클래스를 강제로 추가한다.
         bt.classList.remove("active");
       }
     });
   }
-  listTg(menuBt, menuList);
+  listToggle(menuBt, menuList);
   // toggleListArr[0] = menuList
-  listTg(joinBt, joinList);
+  listToggle(joinBt, joinList);
   // toggleListArr[1] = joinList
-  listTg(centerBt, centerList);
+  listToggle(centerBt, centerList);
   // toggleListArr[2] = centerList
-
-  //전체메뉴 펼침 기능
-  const allMenuArea = this.document.querySelector(".all-menu-area");
-  const allMenu = this.document.querySelector(".all-menu");
-  const cateList = this.document.querySelector(".cate-list");
-  //꼬마와땅부터 메뉴창 안 열리게 하기
-  const deliList = this.document.querySelector(".deli-menu");
+  // ====================================================
+  // 전체 메뉴 펼침 기능
+  const allMenuArea = document.querySelector(".all-menu-area");
+  const allMenu = document.querySelector(".all-menu");
+  const cateList = document.querySelector(".cate-list");
+  // ul인 cate-list로 선언하니 스크롤 부분에 커서올리면 메뉴 사라짐.
+  const cateListWrap = document.querySelector(".all-menu-cate-wrap");
+  const deliList = this.document.querySelector(".deli-list");
   const themeList = this.document.querySelector(".theme-list");
   let isMenuOpen = false;
   cateList.addEventListener("mouseleave", function () {
     if (!isMenuOpen) {
-      allMenu.classList.remove("active");
+      allMenu.classList.remove("active"); // 기능되기 전 가림.
     }
-  });
-  // console.log(cateList);
-  //ul cate-list
-  const cateListWrap = this.document.querySelector(".all-menu-cate-wrap");
-  cateList.addEventListener("mouseleave", function () {
-    allMenu.classList.remove("active");
   });
   cateList.addEventListener("mouseenter", function () {
     allMenu.classList.add("active");
@@ -112,18 +108,34 @@ window.addEventListener("load", function () {
   cateListWrap.addEventListener("mouseenter", function () {
     allMenu.classList.add("active");
   });
-  // 해당 카테고리 내용만 보여주기
+  deliList.addEventListener("mouseenter", function () {
+    allMenu.classList.remove("active");
+  });
+  themeList.addEventListener("mouseenter", function () {
+    allMenu.classList.remove("active");
+  });
+  // 서브 카테고리 보여주기 기능
   const cateLists = this.document.querySelectorAll(".cate-list > li");
   const cateDepth2 = this.document.querySelectorAll(".cate-depth2-list");
-  cateLists.forEach(function (item, idx) {
+  cateLists.forEach(function (item, index) {
+    // console.log(item);
     item.addEventListener("mouseenter", function () {
-      cateDepth2.forEach(function (itemSub, idxSub) {
+      cateDepth2.forEach(function (itemSub, indexSub) {
         // console.log(itemSub);
         itemSub.style.display = "none";
-        if (idx == idxSub) {
+        if (indexSub === index) {
           itemSub.style.display = "block";
         }
       });
     });
   });
+  // 위로 가기 기능
+  const fixTopBt = this.document.querySelector(".fix-top");
+  fixTopBt.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+  // =88888888888888888888888888888888888
 });

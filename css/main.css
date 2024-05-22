@@ -1,5 +1,10 @@
 @charset "utf-8";
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("font/noto-sans-kr-v13-latin_korean-500.woff2");
+@import url("font/noto-sans-kr-v13-latin_korean-700.woff2");
+@import url("font/noto-sans-kr-v13-latin_korean-regular.woff2");
+@import url("font/Roboto-Bold-webfont.woff");
+@import url("font/Roboto-Medium-webfont.woff");
+@import url("font/Roboto-Regular-webfont.woff");
 * {
   padding: 0;
   margin: 0;
@@ -23,7 +28,6 @@ img {
 
 html {
   font-size: 16px;
-  /* height: 2000px; */
 }
 body {
   font-family: "Roboto", "Noto Sans KR", sans-serif;
@@ -32,9 +36,10 @@ body {
   letter-spacing: 0;
   font-weight: 400;
   color: #000;
+  height: 3000px;
 }
 /* 공통요소 */
-.cf::after {
+.clearfix::after {
   content: "";
   position: relative;
   display: block;
@@ -48,6 +53,8 @@ body {
   width: 1200px;
   margin: 0 auto;
 }
+/* 고정메뉴 */
+
 .wrap > section {
   padding: 80px 0;
 }
@@ -57,7 +64,115 @@ body {
   padding-top: 128px;
   transition: padding-top 0.2s;
 }
-/* section whole style */
+.fix-menu{
+  position: fixed;
+  right: 0;
+  top: 175px;
+  display: block;
+  width: 85px;
+  z-index: 99999;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 10%);
+  padding: 15px 10px 29px 10px;
+  overflow: hidden;
+}
+
+.fix-list{
+  position: relative;
+  display: block;
+}
+
+.fix-list > li{
+  position: relative;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.fix-list > li > a{
+  position: relative;
+  display: block;
+}
+
+.fix-list > li > a::after{
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 32px;
+  background: url("../images/icoFloating.png") no-repeat;
+}
+
+.fix-list > li span{
+  position: relative;
+  display: block;
+}
+
+.fix-login::after{
+  background-position: 0 0;
+}
+
+.fix-shop::after{
+  background-position: 0 -32px !important;
+}
+
+.good-recent{
+  display: inline-block !important;
+  width: 50px !important;
+  height: 50px !important;
+  overflow: hidden;
+}
+
+.good-recent img{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.fix-qa::after{
+  background-position: 0 calc(-32px * 2) !important;
+}
+
+.fix-talk::after{
+  background-position: 0 calc(-32px * 3) !important;
+}
+
+.fix-top{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  line-height: 29px;
+  border: 0;
+  cursor: pointer;
+  font-size: 11px;
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+}
+/* .all-menu-cate::-webkit-scrollbar{
+    width: 10px;
+}
+
+.all-menu-cate::-webkit-scrollbar-thumb{
+    background-color: #afafaf;
+    border-radius: 10px;
+    background-clip: padding-box;
+	border: 2px solid transparent;
+}
+
+.all-menu-cate::-webkit-scrollbar-track{
+    background-color: transparent;
+} */
+/* section 공동 페이아웃 */
 .wrap > section {
   padding: 80px 0;
 }
@@ -70,10 +185,9 @@ body {
   font-weight: 400;
   margin-bottom: 20px;
 }
-.section-title > b {
+.section-title b {
   font-weight: 700;
 }
-
 .section-bar {
   padding-bottom: 15px;
 }
@@ -86,6 +200,7 @@ body {
   width: 20px;
   height: 2px;
 }
+
 .section-title-txt {
   position: relative;
   display: block;
@@ -109,8 +224,11 @@ body {
 .section-bt:hover {
   background: #f9f9f9;
 }
-
-/* slide basic style */
+/* swiper */
+.swiper{
+  width: 100%;
+  height: 100%;
+}
 .slide-control {
   position: relative;
   display: block;
@@ -154,11 +272,13 @@ body {
   text-align: center;
   bottom: 0;
 }
-/* section layout */
+
+/* 섹션 레이아웃 */
 .layout-wrap {
   position: relative;
   display: block;
 }
+
 .layout-left {
   position: relative;
   display: block;
